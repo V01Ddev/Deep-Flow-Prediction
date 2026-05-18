@@ -42,7 +42,7 @@ def genMesh(airfoilFile):
                 line = line.replace("LAST_POINT_INDEX", "{}".format(pointIndex-1))
                 outFile.write(line)
 
-    if os.system("gmsh airfoil.geo -3 -o airfoil.msh > /dev/null") != 0:
+    if os.system("gmsh airfoil.geo -3 -format msh2 -o airfoil.msh > /dev/null") != 0:
         print("error during mesh creation!")
         return(-1)
 
